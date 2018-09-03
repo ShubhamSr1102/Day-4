@@ -14,7 +14,7 @@ public class BankAccount {
 	public BankAccount() {
 		super();
 		accId = accIdValues++;
-		totalAccounts++;
+		setTotalAccounts(getTotalAccounts() + 1);
 	}
 
 	public BankAccount(String accHolderName, String accType, double balance) {
@@ -47,7 +47,7 @@ public class BankAccount {
 	}
 
 	public static long totalBankAccounts() {
-		return totalAccounts;
+		return getTotalAccounts();
 	}
 
 	public long getAccId() {
@@ -76,6 +76,14 @@ public class BankAccount {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+
+	public static long getTotalAccounts() {
+		return totalAccounts;
+	}
+
+	public static void setTotalAccounts(long totalAccounts) {
+		BankAccount.totalAccounts = totalAccounts;
 	}
 
 }
